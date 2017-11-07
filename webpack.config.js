@@ -9,9 +9,9 @@ module.exports = {
     bundle: './src/index.js',
     vendor: VENDOR_LIBS
   },
-  output {
+  output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunckhash].js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -27,7 +27,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunchPlugin({
+    new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({

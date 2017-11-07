@@ -4,6 +4,7 @@
   "description": "Full Stack tracking tool for startup outreach by the Texas Medical Center Innovation Institute accelerator program. Data stored will be used for tracking and analysis.",
   "main": "index.js",
   "scripts": {
+    "test": "set NODE_ENV=test&& nodemon --exec 'mocha --recursive -R min'",
     "clean": "rimraf dist",
     "build": "npm run clean && webpack",
     "server": "webpack-dev-server"
@@ -19,8 +20,13 @@
   },
   "homepage": "https://github.com/alejandroharb/TMCx_Outreach_Tracker#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.0",
+    "nodemon": "^1.12.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-input-range": "^1.2.1",
@@ -33,6 +39,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "html-webpack-plugin": "^2.30.1",

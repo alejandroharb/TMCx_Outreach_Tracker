@@ -1,7 +1,21 @@
 const express = require('express');
 const path = require('path');
-
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+
+//fix mongoose promise depracation warning
+mongoose.Promise = global.Promise;
+
+//differentiate between testing & development environment
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect('mongodb://localhost/TMCx', {
+    useMongoClient:true
+  });
+}
+
+app.use(bodyParser.json()); //API json parser middleware
+routes(app); //import routes
 
 if (process.env.NODE_ENV !== 'production') {
   const webpackMiddleware = require('webpack-dev-middleware');
